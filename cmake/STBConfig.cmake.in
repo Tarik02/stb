@@ -1,0 +1,8 @@
+get_filename_component(STB_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+include(CMakeFindDependencyMacro)
+
+if(NOT TARGET STB::STB)
+    include("${STB_CMAKE_DIR}/STBTargets.cmake")
+endif()
+
+set(STB_LIBRARIES STB::STB)
