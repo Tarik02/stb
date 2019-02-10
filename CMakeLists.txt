@@ -32,7 +32,7 @@ function(target_variable_option TARGET NAME DEFAULT)
   option("${NAME}" "${NAME}" ${DEFAULT})
 
   if(${${NAME}})
-    target_compile_definitions(${TARGET} PRIVATE "${NAME}")
+    target_compile_definitions(${TARGET} PUBLIC "${NAME}")
   endif()
 endfunction()
 
@@ -40,7 +40,7 @@ function(target_variable_definition TARGET NAME DEFAULT)
   set("${NAME}" "${DEFAULT}" CACHE STRING "${NAME}")
 
   if(NOT ${${NAME}} STREQUAL "")
-    target_compile_definitions(${TARGET} PRIVATE "${NAME}=${${NAME}}")
+    target_compile_definitions(${TARGET} PUBLIC "${NAME}=${${NAME}}")
   endif()
 endfunction()
 
